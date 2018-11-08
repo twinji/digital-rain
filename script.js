@@ -6,7 +6,7 @@ const WIDTH = window.innerWidth,
 var raindrops;
 
 // size of droplets in pixels
-var dropSize = 6;
+var dropSize = 14;
 
 // chars to be displayed
 var charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -73,7 +73,7 @@ function render(c) {
 
     // screen fade out effect
     c.fillStyle = "black";
-    c.globalAlpha = 0.05;
+    c.globalAlpha = 0.06;
     c.fillRect(0, 0, WIDTH, HEIGHT)
     c.globalAlpha = 1;
 }
