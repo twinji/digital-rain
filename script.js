@@ -2,7 +2,14 @@
 const WIDTH = window.innerWidth, 
       HEIGHT = window.innerHeight;
 
-var rainDrops;
+// array containing droplet positions
+var raindrops;
+
+// size of droplets in pixels
+var dropSize = 6;
+
+// chars to be displayed
+var charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // run on window load
 window.onload = function(e) {
@@ -14,7 +21,7 @@ window.onload = function(e) {
     canvas.height = HEIGHT;
 
     // initial setup
-    init();
+    init(c);
     
     // main logic loop
     var loop = function() {
@@ -25,19 +32,48 @@ window.onload = function(e) {
     window.requestAnimationFrame(loop, canvas);
 }
 
-function init() {
-    
+function init(c) {
+
+    // initialize raindrops array
+    raindrops = new Array(Math.round(WIDTH / dropSize));
+    for (var i = 0; i < raindrops.length; i++) {
+        raindrops[i] = Math.random() * HEIGHT / dropSize;
+    }
+
+    // set font and font size
+    c.font = dropSize + "px Arial";
 }
 
 function update () {
 
+    // update raindrop positions
+    for (var i = 0; i < raindrops.length; i++) {
+        raindrops[i] += 1;
+        if (raindrops[i] > HEIGHT / dropSize) {
+            raindrops[i] = 0;
+        }
+    }
 }
 
 function render(c) {
 
+    // render raindrops
+    for (var i = 0; i < raindrops.length; i++) {
+
+        // generate and set random color
+        var r = Math.random() * 255;
+            g = Math.random() * 255;
+            b = Math.random() * 255;
+        c.fillStyle = "rgb(" + r + ", " + g + ", " + b + ")";
+
+        // choose and render char form char set
+        var randomChar = charSet.charAt(Math.round(Math.random() * charSet.length));
+        c.fillText(randomChar, i * (WIDTH / raindrops.length), raindrops[i] * dropSize);
+    }
+
     // screen fade out effect
     c.fillStyle = "black";
-    c.globalAlpha = 0.2;
+    c.globalAlpha = 0.05;
     c.fillRect(0, 0, WIDTH, HEIGHT)
     c.globalAlpha = 1;
 }
