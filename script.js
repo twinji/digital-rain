@@ -6,7 +6,7 @@ const WIDTH = window.innerWidth,
 var raindrops;
 
 // size of droplets in pixels
-var dropSize = 14;
+var dropSize = 8;
 
 // chars to be displayed
 var charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
