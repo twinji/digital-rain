@@ -61,8 +61,8 @@ function render(c) {
     for (var i = 0; i < raindrops.length; i++) {
 
         // generate and set random color
-        var r = Math.random() * 255;
-            g = Math.random() * 255;
+        var r = Math.random() * 255,
+            g = Math.random() * 255,
             b = Math.random() * 255;
         c.fillStyle = "rgb(" + r + ", " + g + ", " + b + ")";
 
