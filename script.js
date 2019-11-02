@@ -44,7 +44,7 @@ function init(c) {
     c.font = dropSize + "px Arial";
 }
 
-function update () {
+function update() {
 
     // update raindrop positions
     for (var i = 0; i < raindrops.length; i++) {
