@@ -58,7 +58,7 @@ function update () {
 function render(c) {
 
     // screen fade out effect
-    c.fillStyle = "rgb(5, 0, 13)";
+    c.fillStyle = "rgb(5, 0, 33)";
     c.globalAlpha = 0.038;
     c.fillRect(0, 0, WIDTH, HEIGHT)
     c.globalAlpha = 1;
