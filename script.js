@@ -57,8 +57,17 @@ function update () {
 
 function render(c) {
 
+    // create gradient fill
+    var g = c.createLinearGradient(0, 0, WIDTH, 0);
+    g.addColorStop(0, "rgb(5, 0, 33)");
+    g.addColorStop(.4, "rgb(123, 26, 82)");
+    g.addColorStop(.475, "rgb(135, 29, 90)");
+    g.addColorStop(.525, "rgb(135, 29, 90)");
+    g.addColorStop(.6, "rgb(123, 26, 82)");
+    g.addColorStop(1, "rgb(5, 0, 33)");
+
     // screen fade out effect
-    c.fillStyle = "rgb(5, 0, 33)";
+    c.fillStyle = g;
     c.globalAlpha = 0.038;
     c.fillRect(0, 0, WIDTH, HEIGHT)
     c.globalAlpha = 1;
