@@ -57,6 +57,12 @@ function update () {
 
 function render(c) {
 
+    // screen fade out effect
+    c.fillStyle = "rgb(5, 0, 13)";
+    c.globalAlpha = 0.038;
+    c.fillRect(0, 0, WIDTH, HEIGHT)
+    c.globalAlpha = 1;
+
     // render raindrops
     for (var i = 0; i < raindrops.length; i++) {
 
@@ -67,10 +73,4 @@ function render(c) {
         var randomChar = charSet.charAt(Math.round(Math.random() * charSet.length));
         c.fillText(randomChar, i * (WIDTH / raindrops.length), raindrops[i] * dropSize);
     }
-
-    // screen fade out effect
-    c.fillStyle = "rgb(5, 0, 13)";
-    c.globalAlpha = 0.038;
-    c.fillRect(0, 0, WIDTH, HEIGHT)
-    c.globalAlpha = 1;
 }
